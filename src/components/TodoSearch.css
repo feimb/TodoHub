@@ -1,0 +1,11 @@
+.TodoSearch{
+    height: 40px;
+    width: 480px;
+    display: flex;
+    margin: 16px auto;
+    text-align: center;
+    outline: none;
+    border-radius: 8px;
+    font-size: 1.8rem;
+    color: black;
+}
