@@ -13,17 +13,29 @@ const defaultTodos = [
   {text: "ganarse la confianza de darwin", completed: false},
   {text: "sacar a navia", completed: true},
   {text: "sacar el arma de navia", completed: true},
+
 ]
 function App() {
+  const [todo, setTodos] = React.useState(defaultTodos);
+  const [searchValue, setSearchValue] = React.useState('');
+  console.log(searchValue);
+  
+  const searchedTodos = todo.filter(element => element.text.toLowerCase().includes(searchValue.toLocaleLowerCase()))
+
+  const completedTodos = todo.filter(element => element.completed).length; 
+  const todos = todo.length;
   return (
     <React.Fragment>
       
       <Title />
-      <TodoCounter completed={2} total={defaultTodos.length} />
-      <TodoSearch />
+      <TodoCounter completed={completedTodos} total={todos} />
+      <TodoSearch 
+      searchValue={searchValue}
+      setSearchValue={setSearchValue}
+      />
       
       <TodoList>
-        {defaultTodos.map(todo =>(
+        {searchedTodos.map(todo =>(
           <TodoItem 
           key={todo.text} 
           text={todo.text} 

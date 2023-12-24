@@ -1,7 +1,8 @@
 import "./TodoItem.css"
 function TodoItem(props){
     return(
-      <li className="todoItem">
+      // {`todoItem ${props.completed && "todoCompletados"}`
+      <li className={`todoItem ${props.completed && "todoCompletados"}`}>
         <span className="todoCompleted">V</span>
         <p>{props.text}</p>
         <span className="deleteButton" >X</span>
