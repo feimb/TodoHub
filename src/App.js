@@ -13,7 +13,6 @@ const defaultTodos = [
   {text: "ganarse la confianza de darwin", completed: false},
   {text: "sacar a navia", completed: true},
   {text: "sacar el arma de navia", completed: true},
-
 ]
 function App() {
   const [todo, setTodos] = React.useState(defaultTodos);
@@ -24,6 +23,29 @@ function App() {
 
   const completedTodos = todo.filter(element => element.completed).length; 
   const todos = todo.length;
+
+  const trueComplete = (text) =>{
+    const newTodos = [...todo];
+    const todoindex = newTodos.findIndex((element) =>{
+      return element.text === text
+    });
+    if(todo[todoindex].completed){
+      newTodos[todoindex].completed = false
+      setTodos(newTodos)
+    }else{
+      newTodos[todoindex].completed = true
+      setTodos(newTodos)
+    }
+  }
+  const deleteTodo = (text) =>{
+    const newTodos = [...todo];
+    const todoindex = newTodos.findIndex((element) =>{
+      return element.text === text
+    });
+    newTodos.splice(todoindex, 1)
+    setTodos(newTodos)
+  }
+
   return (
     <React.Fragment>
       
@@ -40,6 +62,14 @@ function App() {
           key={todo.text} 
           text={todo.text} 
           completed={todo.completed}
+          onComplete={() => {
+            return trueComplete(todo.text)
+            }
+          }
+          onDelete={() =>{
+            return deleteTodo(todo.text)
+            }
+          }
           />
         ))}
       </TodoList>

@@ -3,9 +3,15 @@ function TodoItem(props){
     return(
       // {`todoItem ${props.completed && "todoCompletados"}`
       <li className={`todoItem ${props.completed && "todoCompletados"}`}>
-        <span className="todoCompleted">V</span>
+        <span 
+        className="todoCompleted"
+        onClick={props.onComplete}
+        >V</span>
         <p>{props.text}</p>
-        <span className="deleteButton" >X</span>
+        <span 
+        className="deleteButton" 
+        onClick={props.onDelete}
+        >X</span>
       </li>
     );
   
