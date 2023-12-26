@@ -13,8 +13,12 @@
 .todoItem p{
     color: black;
     font-size: 1.6rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
 }
-.todoCompleted{
+.checkButton{
     width: 24px;
     height: 24px;
     position: absolute;
@@ -36,13 +40,15 @@
     font-weight: bold;
     right: 8px;
     text-align: center;
-    bottom: 10px;
+    bottom: 8px;
     cursor: pointer;
 }
-.deleteButton:hover{
+
+
+.svgIcon:hover{
     color: red;
 }
-.todoCompletados > .todoCompleted{
+.todoCompletados > .checkButton > .svgIcon{
     color: green;
 }
 .todoCompletados p{
